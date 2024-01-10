@@ -1,0 +1,9 @@
+{
+	"name": "ADFukkdemo",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "120de30b-1e77-4cd5-9f88-742092c49cbf",
+		"tenantId": "8d281d1d-9c4d-4bf7-b16e-032d15de9f6c"
+	}
+}
