@@ -1,0 +1,29 @@
+{
+	"name": "CP_adls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedService_ADFdemo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Assignment 8(1).pdf",
+				"folderPath": "input",
+				"container": "adfdemocontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "%PDF-1.4",
+				"type": "String"
+			}
+		]
+	}
+}
