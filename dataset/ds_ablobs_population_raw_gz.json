@@ -1,0 +1,26 @@
+{
+	"name": "ds_ablobs_population_raw_gz",
+	"properties": {
+		"description": "created this data set for copying this raw zipped file from blob storage. This is the origin for data to be copied.",
+		"linkedServiceName": {
+			"referenceName": "ls_ablobs_covidreportingsauk",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "population_by_age.tsv.gz",
+				"container": "population"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"compressionLevel": "Optimal",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
