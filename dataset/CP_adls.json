@@ -1,10 +1,6 @@
 {
 	"name": "CP_adls",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LinkedService_ADFdemo",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
