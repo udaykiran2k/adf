@@ -1,0 +1,7 @@
+{
+	"name": "pl_ingest_population_data",
+	"properties": {
+		"description": "Ingesting the population by age data file from Azure Blob storage to ADLS. This is a copy function. Using Azure IR.",
+		"annotations": []
+	}
+}
