@@ -1,0 +1,9 @@
+{
+	"name": "covid-reportingadf-uk",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cf2851b3-9917-4268-bbb7-0845ffaa53bb",
+		"tenantId": "8d281d1d-9c4d-4bf7-b16e-032d15de9f6c"
+	}
+}
