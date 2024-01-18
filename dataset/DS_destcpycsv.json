@@ -1,10 +1,6 @@
 {
 	"name": "DS_destcpycsv",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_copycsv",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
