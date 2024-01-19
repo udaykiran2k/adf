@@ -1,0 +1,18 @@
+{
+	"name": "tr_ingest_population_data",
+	"properties": {
+		"description": "Writing a trigger to ingest the data when the data is created/loaded in to blob storage container.",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/f5f8f55d-80cf-4f25-8b52-1914f396e113/resourceGroups/covid-reporting-uk/providers/Microsoft.Storage/storageAccounts/covidreportingsauk",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
