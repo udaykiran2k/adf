@@ -18,6 +18,10 @@
 		"ls_adls_covidreportingadlsuk_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://covidreportingadlsuk.dfs.core.windows.net/"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/f5f8f55d-80cf-4f25-8b52-1914f396e113/resourceGroups/covid-reporting-uk/providers/Microsoft.Storage/storageAccounts/covidreportingsauk"
 		}
 	},
 	"variables": {
@@ -51,26 +55,6 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('ls_adls_covidreportingadlsuk_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_pipeline1')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 2,
-						"startTime": "2024-01-16T16:19:00Z",
-						"timeZone": "UTC"
 					}
 				}
 			},
@@ -356,6 +340,37 @@
 				"[concat(variables('factoryId'), '/datasets/ds_ablobs_population_raw_gz')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_population_raw_tsv')]",
 				"[concat(variables('factoryId'), '/linkedServices/ls_ablobs_covidreportingsauk')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tr_ingest_population_data')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Writing a trigger to ingest the data when the data is created/loaded in to blob storage container.",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_ingest_population_data",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/population/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_population_data')]"
 			]
 		}
 	]

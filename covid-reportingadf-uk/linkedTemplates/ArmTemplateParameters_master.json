@@ -14,6 +14,9 @@
 		"ls_adls_covidreportingadlsuk_properties_typeProperties_url": {
 			"value": "https://covidreportingadlsuk.dfs.core.windows.net/"
 		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/f5f8f55d-80cf-4f25-8b52-1914f396e113/resourceGroups/covid-reporting-uk/providers/Microsoft.Storage/storageAccounts/covidreportingsauk"
+		},
 		"containerUri": {
 			"value": ""
 		},
