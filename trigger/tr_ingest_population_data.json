@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Writing a trigger to ingest the data when the data is created/loaded in to blob storage container.",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
